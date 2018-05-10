@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "VCComon.h"
+#import "VCTopBottom.h"
+#import "VCXY.h"
+#import "VCLeftRight.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +21,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    UITabBarController *tabController = [[UITabBarController alloc]init];
+    VCComon *common = [[VCComon alloc]init];
+    common.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"自定义类" image:nil selectedImage:nil];
+    VCTopBottom *topBottom = [[VCTopBottom alloc]init];
+    topBottom.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"上下对齐" image:nil tag:0];
+    VCXY *xy = [[VCXY alloc]init];
+    xy.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"XY对齐" image:nil selectedImage:nil];
+    VCLeftRight *leftRight = [[VCLeftRight alloc]init];
+    leftRight.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"左右对齐" image:nil selectedImage:nil];
+    tabController.viewControllers = @[common, topBottom, xy, leftRight];
+    self.window.rootViewController = tabController;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 

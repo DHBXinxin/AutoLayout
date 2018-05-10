@@ -1,15 +1,16 @@
 //
-//  ViewController.h
+//  VCXY.h
 //  AutoLayout
 //
-//  Created by DHSD on 2018/5/9.
+//  Created by DHSD on 2018/5/10.
 //  Copyright © 2018年 DHSD. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+/**
+ X、Y轴对齐
+ */
+@interface VCXY : UIViewController
 
 @end
-
