@@ -26,7 +26,12 @@
     [self.view addSubview:blueView];
     redView.translatesAutoresizingMaskIntoConstraints = NO;
     
-    
+    NSDictionary *views = NSDictionaryOfVariableBindings(redView, blueView);
+    views = @{@"redView": redView, @"blueView": blueView};
+    //这两个dic是相等的
+    NSDictionary *spaceMetrics = @{@"space": @30};
+    NSMutableArray *layouts = [NSMutableArray array];
+//    NSString *hVFL
     
 //    [self addViews:redView, blueView, nil];
 //

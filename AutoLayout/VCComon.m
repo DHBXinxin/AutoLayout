@@ -7,7 +7,7 @@
 //
 
 #import "VCComon.h"
-#import "VFCAutoLayout.h"
+#import "VFLAutoLayout.h"
 
 /**
  添加一个方法、就需要测试一个方法
@@ -27,9 +27,9 @@
     
     [self.view addSubview:view];
     
-    [VFCAutoLayout setView:view withHeight:@"50"];
+    [VFLAutoLayout setView:view withHeight:@"50"];
     view.translatesAutoresizingMaskIntoConstraints = NO;
-    [VFCAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
+    [VFLAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
     UIView *red = [[UIView alloc]init];
     red.backgroundColor = [UIColor redColor];
     [self.view addSubview:red];
@@ -37,12 +37,12 @@
    
     red.translatesAutoresizingMaskIntoConstraints = NO;
     
-//    [VFCAutoLayout setTopZero:red];
-//    [VFCAutoLayout setLeftZero:red];
-//    [VFCAutoLayout setRightZero:red];
-//    [VFCAutoLayout setBottomZero:red];
-//    [VFCAutoLayout setView:red withHeight:@"100"];
-//    [VFCAutoLayout setView:red withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
+//    [VFLAutoLayout setTopZero:red];
+//    [VFLAutoLayout setLeftZero:red];
+//    [VFLAutoLayout setRightZero:red];
+//    [VFLAutoLayout setBottomZero:red];
+//    [VFLAutoLayout setView:red withHeight:@"100"];
+//    [VFLAutoLayout setView:red withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
 //    NSMutableArray *array = [NSMutableArray array];
 //    [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[red]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(red)]];
 //    [array addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[red]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(red)]];

@@ -10,6 +10,7 @@
 		AB02125120A3CA080040F4ED /* VCLeftRight.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02125020A3CA080040F4ED /* VCLeftRight.m */; };
 		AB02125A20A3CFA70040F4ED /* VCXY.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02125920A3CFA70040F4ED /* VCXY.m */; };
 		AB02125D20A3CFD90040F4ED /* VCTopBottom.m in Sources */ = {isa = PBXBuildFile; fileRef = AB02125C20A3CFD90040F4ED /* VCTopBottom.m */; };
+		AB092A9620A52AFA0063B3F0 /* VFLAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = AB092A9520A52AFA0063B3F0 /* VFLAutoLayout.m */; };
 		ABB05E3B20A448A10062983C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = ABB05E3A20A448A10062983C /* README.md */; };
 		ABF9CB4A20A2E3240091F92C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9CB4920A2E3240091F92C /* AppDelegate.m */; };
 		ABF9CB4D20A2E3240091F92C /* VCComon.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9CB4C20A2E3240091F92C /* VCComon.m */; };
@@ -17,7 +18,6 @@
 		ABF9CB5220A2E32A0091F92C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABF9CB5120A2E32A0091F92C /* Assets.xcassets */; };
 		ABF9CB5520A2E32A0091F92C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABF9CB5320A2E32A0091F92C /* LaunchScreen.storyboard */; };
 		ABF9CB5820A2E32A0091F92C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9CB5720A2E32A0091F92C /* main.m */; };
-		ABF9CB6020A2E4C90091F92C /* VFCAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = ABF9CB5F20A2E4C90091F92C /* VFCAutoLayout.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +27,8 @@
 		AB02125920A3CFA70040F4ED /* VCXY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCXY.m; sourceTree = "<group>"; };
 		AB02125B20A3CFD90040F4ED /* VCTopBottom.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VCTopBottom.h; sourceTree = "<group>"; };
 		AB02125C20A3CFD90040F4ED /* VCTopBottom.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VCTopBottom.m; sourceTree = "<group>"; };
+		AB092A9420A52AFA0063B3F0 /* VFLAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VFLAutoLayout.h; sourceTree = "<group>"; };
+		AB092A9520A52AFA0063B3F0 /* VFLAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VFLAutoLayout.m; sourceTree = "<group>"; };
 		ABB05E3A20A448A10062983C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		ABF9CB4520A2E3240091F92C /* AutoLayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutoLayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF9CB4820A2E3240091F92C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -38,8 +40,6 @@
 		ABF9CB5420A2E32A0091F92C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABF9CB5620A2E32A0091F92C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ABF9CB5720A2E32A0091F92C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		ABF9CB5E20A2E4C90091F92C /* VFCAutoLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VFCAutoLayout.h; sourceTree = "<group>"; };
-		ABF9CB5F20A2E4C90091F92C /* VFCAutoLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VFCAutoLayout.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +83,8 @@
 				AB02125920A3CFA70040F4ED /* VCXY.m */,
 				AB02124F20A3CA080040F4ED /* VCLeftRight.h */,
 				AB02125020A3CA080040F4ED /* VCLeftRight.m */,
-				ABF9CB5E20A2E4C90091F92C /* VFCAutoLayout.h */,
-				ABF9CB5F20A2E4C90091F92C /* VFCAutoLayout.m */,
+				AB092A9420A52AFA0063B3F0 /* VFLAutoLayout.h */,
+				AB092A9520A52AFA0063B3F0 /* VFLAutoLayout.m */,
 				ABF9CB4E20A2E3240091F92C /* Main.storyboard */,
 				ABF9CB5120A2E32A0091F92C /* Assets.xcassets */,
 				ABF9CB5320A2E32A0091F92C /* LaunchScreen.storyboard */,
@@ -166,7 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB02125D20A3CFD90040F4ED /* VCTopBottom.m in Sources */,
-				ABF9CB6020A2E4C90091F92C /* VFCAutoLayout.m in Sources */,
+				AB092A9620A52AFA0063B3F0 /* VFLAutoLayout.m in Sources */,
 				ABF9CB4D20A2E3240091F92C /* VCComon.m in Sources */,
 				ABF9CB5820A2E32A0091F92C /* main.m in Sources */,
 				AB02125120A3CA080040F4ED /* VCLeftRight.m in Sources */,
