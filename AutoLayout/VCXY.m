@@ -17,6 +17,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIView *redView = [[UIView alloc]init];
+    UIView *blueView = [[UIView alloc]init];
+    redView.backgroundColor = [UIColor redColor];
+    blueView.backgroundColor = [UIColor blueColor];
+    [self.view addSubview:redView];
+    [self.view addSubview:blueView];
+    //取消系统自动创建的约束
+    redView.translatesAutoresizingMaskIntoConstraints = NO;
+    blueView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    //x轴对齐
+//    NSDictionary *spaceMetrics = @{@"space": @30};
+//    NSString *hVFC = @"H:|-space-[redView]-[blueView(==redView)]-space-|";
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:hVFC options:NSLayoutFormatAlignAllCenterY metrics:spaceMetrics views:NSDictionaryOfVariableBindings(redView,blueView)]];
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-100-[redView(50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(redView)]];
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[blueView(30)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(blueView)]];
+    
+    NSDictionary *spaceMetrics = @{@"space": @30};
+    NSString *hVFC = @"V:|-space-[redView]-[blueView(==redView)]-space-|";
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:hVFC options:NSLayoutFormatAlignAllCenterX metrics:spaceMetrics views:NSDictionaryOfVariableBindings(redView,blueView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-100-[redView(50)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(redView)]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[blueView(30)]" options:0 metrics:nil views:NSDictionaryOfVariableBindings(blueView)]];
+
 }
 
 - (void)didReceiveMemoryWarning {

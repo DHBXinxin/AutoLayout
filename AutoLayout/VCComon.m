@@ -7,7 +7,7 @@
 //
 
 #import "VCComon.h"
-#import "VFLAutoLayout.h"
+#import "CommonAutoLayout.h"
 
 /**
  添加一个方法、就需要测试一个方法
@@ -27,9 +27,9 @@
     
     [self.view addSubview:view];
     
-    [VFLAutoLayout setView:view withHeight:@"50"];
+    [CommonAutoLayout setView:view withHeight:@"50"];
     view.translatesAutoresizingMaskIntoConstraints = NO;
-    [VFLAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
+    [CommonAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
     UIView *red = [[UIView alloc]init];
     red.backgroundColor = [UIColor redColor];
     [self.view addSubview:red];

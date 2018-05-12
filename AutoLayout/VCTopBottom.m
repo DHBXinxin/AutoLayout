@@ -24,14 +24,23 @@
     blueView.backgroundColor = [UIColor blueColor];
     [self.view addSubview:redView];
     [self.view addSubview:blueView];
+    //取消系统自动创建的约束
     redView.translatesAutoresizingMaskIntoConstraints = NO;
+    blueView.translatesAutoresizingMaskIntoConstraints = NO;
     
     NSDictionary *views = NSDictionaryOfVariableBindings(redView, blueView);
     views = @{@"redView": redView, @"blueView": blueView};
     //这两个dic是相等的
     NSDictionary *spaceMetrics = @{@"space": @30};
     NSMutableArray *layouts = [NSMutableArray array];
-//    NSString *hVFL
+    NSString *hVFL = @"H:|-space-[blueView]-space-[redView(==blueView)]-space-|";
+    NSArray *hLayout = [NSLayoutConstraint constraintsWithVisualFormat:hVFL options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:spaceMetrics views:views];
+    [layouts addObjectsFromArray:hLayout];
+    NSString *vVFL = @"V:[blueView(50)]-space-|";
+    NSArray *vLayout = [NSLayoutConstraint constraintsWithVisualFormat:vVFL options:0 metrics:spaceMetrics views:views];
+    [layouts addObjectsFromArray:vLayout];
+    
+    [self.view addConstraints:layouts];
     
 //    [self addViews:redView, blueView, nil];
 //

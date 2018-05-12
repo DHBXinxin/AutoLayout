@@ -11,6 +11,6 @@
 /**
  左右对齐
  */
-@interface VCLeftRight : VCComon
+@interface VCLeftRight : UIViewController
 
 @end

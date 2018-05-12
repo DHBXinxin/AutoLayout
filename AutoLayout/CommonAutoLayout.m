@@ -6,9 +6,9 @@
 //  Copyright © 2018年 DHSD. All rights reserved.
 //
 
-#import "VFLAutoLayout.h"
+#import "CommonAutoLayout.h"
 
-@implementation VFLAutoLayout
+@implementation CommonAutoLayout
 
 + (void)setView:(UIView *)view withHeight:(NSString *)height {
     id superView = view.superview;

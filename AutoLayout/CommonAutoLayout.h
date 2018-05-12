@@ -11,7 +11,7 @@
 /**
  手写代码自动布局
  */
-@interface VFLAutoLayout : NSObject
+@interface CommonAutoLayout : NSObject
 /**
  设置高度
  */
