@@ -27,15 +27,22 @@
     
     [self.view addSubview:view];
     
-    [CommonAutoLayout setView:view withHeight:@"50"];
+    [CommonAutoLayout setView:view withHeight:50];
     view.translatesAutoresizingMaskIntoConstraints = NO;
-    [CommonAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 20)];
+//    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+    [CommonAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 100)];
     UIView *red = [[UIView alloc]init];
     red.backgroundColor = [UIColor redColor];
     [self.view addSubview:red];
     
-   
     red.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    [CommonAutoLayout setView:red withWidth:44];
+    [CommonAutoLayout setView:red withHeight:44];
+    [CommonAutoLayout setXMidView:red superView:self.view];
+    [CommonAutoLayout setYMidView:red superView:self.view];
+//    [CommonAutoLayout setSpace:10 leftView:view rightView:red];
+//    [CommonAutoLayout setSpace:10 topView:view bottomView:red];
     
 //    [VFLAutoLayout setTopZero:red];
 //    [VFLAutoLayout setLeftZero:red];
@@ -56,10 +63,12 @@
 //    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[red]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(red)]];
 
 //    [self insets:UIEdgeInsetsMake(59, 80, 100, 120) view:red];
-    UIView *blue = [[UIView alloc]initWithFrame:CGRectMake(10, 10, self.view.frame.size.width - 20, 30)];
-    blue.backgroundColor = [UIColor blueColor];
-//    [self.view addSubview:blue];
-//    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+    label.text = @"试试这个东西";
+    [view addSubview:label];
+    CGFloat f = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    NSLog(@"%f",f);
+    
 }
 
 - (void)insets:(UIEdgeInsets)insets view:(UIView *)view {

@@ -7,6 +7,8 @@
 //
 
 #import "VCTopBottom.h"
+#import "CommonAutoLayout.h"
+#import "VCScroll.h"
 
 @interface VCTopBottom ()
 
@@ -46,6 +48,25 @@
 //
 //    [self foo:@"%@",@"abc"];
     
+    
+    UIButton *bt = [[UIButton alloc]init];
+    bt.backgroundColor = [UIColor redColor];
+    [bt setTitle:@"button" forState:UIControlStateNormal];
+    [self.view addSubview:bt];
+    bt.translatesAutoresizingMaskIntoConstraints = NO;
+    [bt addTarget:self action:@selector(push) forControlEvents:UIControlEventTouchUpInside];
+    
+    [CommonAutoLayout setView:bt withHeight:44];
+    [CommonAutoLayout setView:bt withWidth:44];
+    [CommonAutoLayout setYMidView:bt superView:self.view];
+    [CommonAutoLayout setXMidView:bt superView:self.view];
+    
+    
+}
+- (void)push {
+    VCScroll *vc = [[VCScroll alloc]init];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 //就是因为前面的那个format表达式它的可变参数才不用写上nil
 - (void)foo:(NSString *)format, ...
@@ -66,7 +87,7 @@
         if (v == nil) {
             break;
         }
-        NSLog(@"%@",v);
+//        NSLog(@"%@",v);
     }
     va_end(list);
 }

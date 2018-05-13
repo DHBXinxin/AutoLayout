@@ -27,12 +27,13 @@
     VCComon *common = [[VCComon alloc]init];
     common.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"自定义类" image:nil selectedImage:nil];
     VCTopBottom *topBottom = [[VCTopBottom alloc]init];
-    topBottom.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"上下对齐" image:nil tag:0];
+    UINavigationController *nav1 = [[UINavigationController alloc]initWithRootViewController:topBottom];
+    nav1.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"上下对齐" image:nil tag:0];
     VCXY *xy = [[VCXY alloc]init];
     xy.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"XY对齐" image:nil selectedImage:nil];
     VCLeftRight *leftRight = [[VCLeftRight alloc]init];
     leftRight.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"左右对齐" image:nil selectedImage:nil];
-    tabController.viewControllers = @[common, topBottom, xy, leftRight];
+    tabController.viewControllers = @[common, nav1, xy, leftRight];
     self.window.rootViewController = tabController;
     [self.window makeKeyAndVisible];
     return YES;
