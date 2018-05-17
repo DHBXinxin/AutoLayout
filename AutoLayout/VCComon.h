@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+/**
+ 测试方法
+ */
 @interface VCComon : UIViewController
 
 

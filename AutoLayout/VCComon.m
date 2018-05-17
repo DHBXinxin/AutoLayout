@@ -22,25 +22,25 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIView *view = [[UIView alloc]init];
-    view.backgroundColor = [UIColor redColor];
-    
-    [self.view addSubview:view];
-    
-    [CommonAutoLayout setView:view withHeight:50];
-    view.translatesAutoresizingMaskIntoConstraints = NO;
-//    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
-    [CommonAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 100)];
-    UIView *red = [[UIView alloc]init];
-    red.backgroundColor = [UIColor redColor];
-    [self.view addSubview:red];
-    
-    red.translatesAutoresizingMaskIntoConstraints = NO;
-    
-    [CommonAutoLayout setView:red withWidth:44];
-    [CommonAutoLayout setView:red withHeight:44];
-    [CommonAutoLayout setXMidView:red superView:self.view];
-    [CommonAutoLayout setYMidView:red superView:self.view];
+//    UIView *view = [[UIView alloc]init];
+//    view.backgroundColor = [UIColor redColor];
+//    
+//    [self.view addSubview:view];
+//    
+//    [CommonAutoLayout setView:view withHeight:50];
+//    view.translatesAutoresizingMaskIntoConstraints = NO;
+////    UIEdgeInsetsMake(<#CGFloat top#>, <#CGFloat left#>, <#CGFloat bottom#>, <#CGFloat right#>)
+//    [CommonAutoLayout setView:view withInsets:UIEdgeInsetsMake(20, 20, 0, 100)];
+//    UIView *red = [[UIView alloc]init];
+//    red.backgroundColor = [UIColor redColor];
+//    [self.view addSubview:red];
+//    
+//    red.translatesAutoresizingMaskIntoConstraints = NO;
+//    
+//    [CommonAutoLayout setView:red withWidth:44];
+//    [CommonAutoLayout setView:red withHeight:44];
+//    [CommonAutoLayout setXMidView:red superView:self.view];
+//    [CommonAutoLayout setYMidView:red superView:self.view];
 //    [CommonAutoLayout setSpace:10 leftView:view rightView:red];
 //    [CommonAutoLayout setSpace:10 topView:view bottomView:red];
     
@@ -63,12 +63,21 @@
 //    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-20-[red]-20-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(red)]];
 
 //    [self insets:UIEdgeInsetsMake(59, 80, 100, 120) view:red];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
-    label.text = @"试试这个东西";
-    [view addSubview:label];
-    CGFloat f = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 30)];
+//    label.text = @"试试这个东西";
+//    [view addSubview:label];
+//    CGFloat f = [view systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 //    NSLog(@"%f",f);
-    
+    NSMutableArray *views = [NSMutableArray array];
+    for (NSInteger i = 0; i < 10; i++) {
+        UIView *v = [[UIView alloc]init];
+        v.backgroundColor = [UIColor redColor];
+        v.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:v];
+        [views addObject:v];
+    }
+//    [CommonAutoLayout setHorizontallyViews:views withSpace:10 andHeight:40 topInset:50 orBottomInset:0];
+    [CommonAutoLayout setVerticallyViews:views withSpace:10 andWidth:40 leftInset:50 andRightInset:0];
 }
 
 - (void)insets:(UIEdgeInsets)insets view:(UIView *)view {

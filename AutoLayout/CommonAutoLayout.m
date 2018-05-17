@@ -132,4 +132,64 @@
 + (void)setYMidView:(UIView *)view superView:(UIView *)superView {
     [superView addConstraint:[NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:superView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0]];
 }
++ (void)setHorizontallyViews:(NSArray *)views withSpace:(CGFloat)space andHeight:(CGFloat)height topInset:(CGFloat)top orBottomInset:(CGFloat)bottom {
+    NSMutableDictionary *viewsAndKeys = [NSMutableDictionary dictionary];
+    NSMutableString *hvfl = [NSMutableString string];
+    NSMutableString *vvfl = [NSMutableString string];
+    NSString *firstKey = nil;
+    NSString *lastKey = nil;
+    id superView = nil;
+    for (NSInteger i = 0; i < views.count; i++) {
+        UIView *view = [views objectAtIndex:i];
+        NSString *key = [NSString stringWithFormat:@"view%li",(long)i];
+        [viewsAndKeys setObject:view forKey:key];
+        if (i == 0) {
+            firstKey = key;
+            superView = view.superview;
+            [hvfl appendFormat:@"H:|-%f-[%@]",space/2, key];
+        } else if (i < views.count - 1) {
+            [hvfl appendFormat:@"-%f-[%@(==%@)]",space, key, lastKey];
+        } else {
+            [hvfl appendFormat:@"-%f-[%@(==%@)]-%f-|",space, key, lastKey, space/2];
+        }
+        lastKey = key;
+    }
+    if (bottom != 0) {
+        [vvfl appendFormat:@"V:[%@(%f)]-%f-|",firstKey, height, bottom];
+    } else {
+        [vvfl appendFormat:@"V:|-%f-[%@(%f)]",top, firstKey, height];
+    }
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:hvfl options:NSLayoutFormatAlignAllTop|NSLayoutFormatAlignAllBottom metrics:nil views:viewsAndKeys]];
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vvfl options:0 metrics:nil views:viewsAndKeys]];
+}
++ (void)setVerticallyViews:(NSArray *)views withSpace:(CGFloat)space andWidth:(CGFloat)width leftInset:(CGFloat)left andRightInset:(CGFloat)right {
+    NSMutableDictionary *viewsAndKeys = [NSMutableDictionary dictionary];
+    NSMutableString *hvfl = [NSMutableString string];
+    NSMutableString *vvfl = [NSMutableString string];
+    NSString *firstKey = nil;
+    NSString *lastKey = nil;
+    id superView = nil;
+    for (NSInteger i = 0; i < views.count; i++) {
+        UIView *view = [views objectAtIndex:i];
+        NSString *key = [NSString stringWithFormat:@"view%li",(long)i];
+        [viewsAndKeys setObject:view forKey:key];
+        if (i == 0) {
+            firstKey = key;
+            superView = view.superview;
+            [vvfl appendFormat:@"V:|-%f-[%@]",space/2, key];
+        } else if (i < views.count - 1) {
+            [vvfl appendFormat:@"-%f-[%@(==%@)]",space, key, lastKey];
+        } else {
+            [vvfl appendFormat:@"-%f-[%@(==%@)]-%f-|",space, key, lastKey, space/2];
+        }
+        lastKey = key;
+    }
+    if (right != 0) {
+        [hvfl appendFormat:@"H:[%@(%f)]-%f-|",firstKey, width, right];
+    } else {
+        [hvfl appendFormat:@"H:|-%f-[%@(%f)]",left, firstKey, width];
+    }
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:hvfl options:0 metrics:nil views:viewsAndKeys]];
+    [superView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:vvfl options:NSLayoutFormatAlignAllLeft|NSLayoutFormatAlignAllRight metrics:nil views:viewsAndKeys]];
+}
 @end

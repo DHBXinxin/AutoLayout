@@ -74,5 +74,22 @@
  @param superView super view
  */
 + (void)setYMidView:(UIView *)view superView:(UIView *)superView;
+/**
+ 多个控件横向排列
 
+ @param views 传入各个view
+ @param space 间隔-space/2-view-space-view-space-view-space/2-
+ @param height view的统一高度
+ @param top 和 bottom只能选择一个传入另一个传入0
+ */
++ (void)setHorizontallyViews:(NSArray *)views withSpace:(CGFloat)space andHeight:(CGFloat)height topInset:(CGFloat)top orBottomInset:(CGFloat)bottom;
+/**
+ 多个控件竖向排列
+
+ @param views 传入的各个view
+ @param space 间隔
+ @param width 统一的宽度
+ @param left 和 right 只能传入一个另一个传入0
+ */
++ (void)setVerticallyViews:(NSArray *)views withSpace:(CGFloat)space andWidth:(CGFloat)width leftInset:(CGFloat)left andRightInset:(CGFloat)right;
 @end
